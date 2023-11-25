@@ -25,12 +25,14 @@ final class SaveCompleteViewController: UIViewController {
         setUI()
         setHierarchy()
         setLayout()
+        setDelegate()
     }
 }
 
 private extension SaveCompleteViewController {
     func setUI() {
         view.backgroundColor = .black
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     func setHierarchy() {
@@ -44,5 +46,16 @@ private extension SaveCompleteViewController {
         rootView.snp.makeConstraints {
             $0.edges.equalTo(view.safeAreaLayoutGuide)
         }
+    }
+    
+    func setDelegate() {
+        rootView.saveCompleteButtonDelegate = self
+    }
+}
+
+extension SaveCompleteViewController: SaveCompleteButtonDelegate {
+    func closeButtonClicked() {
+        let rootVC = ArchivingViewController()
+        self.navigationController?.pushViewController(rootVC, animated: true)
     }
 }

@@ -8,15 +8,13 @@
 import UIKit
 import SnapKit
 
-protocol HomeViewPushDelegate: AnyObject {
-    func didTapButton(questionId: Int, userId: Int, answer: String)
+protocol QuestionViewButtonDelegate: AnyObject {
+    func saveButtonClicked()
 }
-
 
 final class QuestionView: UIView, UIGestureRecognizerDelegate {
     
-    weak var delegate: HomeViewPushDelegate?
-    
+    weak var questionViewButtonDelegate: QuestionViewButtonDelegate?
 
     // MARK: - Properties
     
@@ -186,7 +184,7 @@ extension QuestionView {
     }
     
     func setAddTarget() {
-        saveButton.addTarget(self, action: #selector(onTapButton), for: .touchUpInside)
+        saveButton.addTarget(self, action: #selector(saveButtonButtonTapped), for: .touchUpInside)
     }
     
     @objc func onTapButton() {
