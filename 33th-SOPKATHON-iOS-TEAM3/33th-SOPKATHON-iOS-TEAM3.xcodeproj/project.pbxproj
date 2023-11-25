@@ -55,6 +55,7 @@
 		948C28B02B125AB000CEB2B7 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 948C28AD2B125AAF00CEB2B7 /* Pretendard-Medium.otf */; };
 		948C28B12B125AB000CEB2B7 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 948C28AE2B125AAF00CEB2B7 /* Pretendard-Regular.otf */; };
 		948C28B32B12774A00CEB2B7 /* ArchivingDetailAnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948C28B22B12774A00CEB2B7 /* ArchivingDetailAnswerView.swift */; };
+		948C28BB2B128DDC00CEB2B7 /* SavedAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948C28BA2B128DDC00CEB2B7 /* SavedAlertViewController.swift */; };
 		CDF632382B1259580014EB66 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF632372B1259580014EB66 /* UserAPI.swift */; };
 		CDF6323A2B12595F0014EB66 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF632392B12595F0014EB66 /* UserService.swift */; };
 		CDF6323C2B125D940014EB66 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF6323B2B125D940014EB66 /* UserEntity.swift */; };
@@ -105,6 +106,7 @@
 		948C28AD2B125AAF00CEB2B7 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		948C28AE2B125AAF00CEB2B7 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		948C28B22B12774A00CEB2B7 /* ArchivingDetailAnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingDetailAnswerView.swift; sourceTree = "<group>"; };
+		948C28BA2B128DDC00CEB2B7 /* SavedAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedAlertViewController.swift; sourceTree = "<group>"; };
 		CDF632372B1259580014EB66 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		CDF632392B12595F0014EB66 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		CDF6323B2B125D940014EB66 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
@@ -163,6 +165,7 @@
 		392EF52B2B11F77F0048F09C /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				948C28B82B128DB300CEB2B7 /* SavedAlert */,
 				392EF5352B11F8530048F09C /* Splash */,
 				399B935A2B123B6E00B4E80E /* Question */,
 				399B93612B123BD300B4E80E /* SaveComplete */,
@@ -445,6 +448,22 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		948C28B82B128DB300CEB2B7 /* SavedAlert */ = {
+			isa = PBXGroup;
+			children = (
+				948C28B92B128DC000CEB2B7 /* ViewController */,
+			);
+			path = SavedAlert;
+			sourceTree = "<group>";
+		};
+		948C28B92B128DC000CEB2B7 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				948C28BA2B128DDC00CEB2B7 /* SavedAlertViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		CDF632362B1259460014EB66 /* UserAPI */ = {
 			isa = PBXGroup;
 			children = (
@@ -579,6 +598,7 @@
 				392EF56C2B11FE700048F09C /* QuestionService.swift in Sources */,
 				CDF6323C2B125D940014EB66 /* UserEntity.swift in Sources */,
 				392EF55D2B11FBFE0048F09C /* CALayer+Extension.swift in Sources */,
+				948C28BB2B128DDC00CEB2B7 /* SavedAlertViewController.swift in Sources */,
 				399B93682B123C2F00B4E80E /* SaveCompleteView.swift in Sources */,
 				399B937B2B123DC700B4E80E /* MoyaLoggerPlugin.swift in Sources */,
 				399B935E2B123B9700B4E80E /* QuestionView.swift in Sources */,
