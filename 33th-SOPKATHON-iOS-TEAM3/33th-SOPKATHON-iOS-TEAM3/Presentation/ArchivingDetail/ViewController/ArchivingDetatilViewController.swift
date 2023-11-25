@@ -97,17 +97,17 @@ private extension ArchivingDetailViewController {
         }
         
         createdAtLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().offset(62)
+            $0.top.equalToSuperview().offset(96)
             $0.centerX.equalToSuperview()
         }
         
         questionLabel.snp.makeConstraints {
-            $0.top.equalTo(createdAtLabel.snp.bottom).offset(18)
+            $0.top.equalTo(createdAtLabel.snp.bottom).offset(6)
             $0.centerX.equalToSuperview()
         }
         
         detailImageView.snp.makeConstraints {
-            $0.top.equalTo(questionLabel.snp.bottom).offset(20)
+            $0.top.equalTo(questionLabel.snp.bottom)
             $0.leading.trailing.equalToSuperview().inset(16)
             $0.height.equalTo(82)
         }
