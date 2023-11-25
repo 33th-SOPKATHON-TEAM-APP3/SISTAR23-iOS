@@ -50,13 +50,14 @@
 		399B937E2B123F1100B4E80E /* QuestionAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399B937D2B123F1100B4E80E /* QuestionAPI.swift */; };
 		399B93802B123F1F00B4E80E /* AnswerAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399B937F2B123F1F00B4E80E /* AnswerAPI.swift */; };
 		399B93842B123F3B00B4E80E /* URLConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399B93832B123F3B00B4E80E /* URLConstant.swift */; };
+		948C28AF2B125AB000CEB2B7 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 948C28AC2B125AAF00CEB2B7 /* Pretendard-Bold.otf */; };
+		948C28B02B125AB000CEB2B7 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 948C28AD2B125AAF00CEB2B7 /* Pretendard-Medium.otf */; };
+		948C28B12B125AB000CEB2B7 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 948C28AE2B125AAF00CEB2B7 /* Pretendard-Regular.otf */; };
+		948C28B32B12774A00CEB2B7 /* ArchivingDetailAnswerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 948C28B22B12774A00CEB2B7 /* ArchivingDetailAnswerView.swift */; };
 		CDF632382B1259580014EB66 /* UserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF632372B1259580014EB66 /* UserAPI.swift */; };
 		CDF6323A2B12595F0014EB66 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF632392B12595F0014EB66 /* UserService.swift */; };
 		CDF6323C2B125D940014EB66 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF6323B2B125D940014EB66 /* UserEntity.swift */; };
 		CDF6323E2B125DE10014EB66 /* AnswerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF6323D2B125DE10014EB66 /* AnswerEntity.swift */; };
-		948C28AF2B125AB000CEB2B7 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 948C28AC2B125AAF00CEB2B7 /* Pretendard-Bold.otf */; };
-		948C28B02B125AB000CEB2B7 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 948C28AD2B125AAF00CEB2B7 /* Pretendard-Medium.otf */; };
-		948C28B12B125AB000CEB2B7 /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 948C28AE2B125AAF00CEB2B7 /* Pretendard-Regular.otf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,13 +99,14 @@
 		399B937D2B123F1100B4E80E /* QuestionAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionAPI.swift; sourceTree = "<group>"; };
 		399B937F2B123F1F00B4E80E /* AnswerAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerAPI.swift; sourceTree = "<group>"; };
 		399B93832B123F3B00B4E80E /* URLConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstant.swift; sourceTree = "<group>"; };
+		948C28AC2B125AAF00CEB2B7 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		948C28AD2B125AAF00CEB2B7 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		948C28AE2B125AAF00CEB2B7 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		948C28B22B12774A00CEB2B7 /* ArchivingDetailAnswerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingDetailAnswerView.swift; sourceTree = "<group>"; };
 		CDF632372B1259580014EB66 /* UserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAPI.swift; sourceTree = "<group>"; };
 		CDF632392B12595F0014EB66 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		CDF6323B2B125D940014EB66 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 		CDF6323D2B125DE10014EB66 /* AnswerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerEntity.swift; sourceTree = "<group>"; };
-		948C28AC2B125AAF00CEB2B7 /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
-		948C28AD2B125AAF00CEB2B7 /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
-		948C28AE2B125AAF00CEB2B7 /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -399,6 +401,7 @@
 			isa = PBXGroup;
 			children = (
 				399B93742B123C9100B4E80E /* ArchivingDetatilView.swift */,
+				948C28B22B12774A00CEB2B7 /* ArchivingDetailAnswerView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -421,15 +424,6 @@
 			path = AnswerAPI;
 			sourceTree = "<group>";
 		};
-		CDF632362B1259460014EB66 /* UserAPI */ = {
-			isa = PBXGroup;
-			children = (
-				CDF632372B1259580014EB66 /* UserAPI.swift */,
-				CDF632392B12595F0014EB66 /* UserService.swift */,
-			);
-			path = UserAPI;
-			sourceTree = "<group>";
-		};
 		948C28AB2B125A8900CEB2B7 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -438,6 +432,15 @@
 				948C28AE2B125AAF00CEB2B7 /* Pretendard-Regular.otf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		CDF632362B1259460014EB66 /* UserAPI */ = {
+			isa = PBXGroup;
+			children = (
+				CDF632372B1259580014EB66 /* UserAPI.swift */,
+				CDF632392B12595F0014EB66 /* UserService.swift */,
+			);
+			path = UserAPI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -550,6 +553,7 @@
 				399B937E2B123F1100B4E80E /* QuestionAPI.swift in Sources */,
 				399B93662B123C1F00B4E80E /* SaveCompleteViewController.swift in Sources */,
 				399B93592B1239F800B4E80E /* GenericResponse.swift in Sources */,
+				948C28B32B12774A00CEB2B7 /* ArchivingDetailAnswerView.swift in Sources */,
 				399B936C2B123C4C00B4E80E /* ArchivingView.swift in Sources */,
 				392EF56E2B11FEAC0048F09C /* UIButton+Extension.swift in Sources */,
 				CDF6323E2B125DE10014EB66 /* AnswerEntity.swift in Sources */,
