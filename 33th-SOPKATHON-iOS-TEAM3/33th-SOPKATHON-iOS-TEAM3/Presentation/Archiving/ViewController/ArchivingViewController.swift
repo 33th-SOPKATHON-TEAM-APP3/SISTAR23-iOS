@@ -6,24 +6,67 @@
 //
 
 import UIKit
+import SnapKit
 
-class ArchivingViewController: UIViewController {
+final class ArchivingViewController: UIViewController {
 
+    // MARK: - Properties
+    
+    // MARK: - UI Components
+    
+    private let archivingView = ArchivingView()
+    
+    // MARK: - Life Cycles
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        getAPI()
+        setUI()
+        setHierarchy()
+        setLayout()
+        setDelegate()
+    }
+}
 
-        // Do any additional setup after loading the view.
+// MARK: - Extensions
+extension ArchivingViewController {
+    func setUI() {
+        self.view.backgroundColor = .grey7
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setHierarchy() {
+        view.addSubviews(archivingView)
     }
-    */
+    
+    func setLayout() {
+        archivingView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+    }
+    
+    func setDelegate() {
 
+    }
 }
+
+// MARK: - Network
+
+extension ArchivingViewController {
+    func getAPI() {
+        
+    }
+}
+
+//extension ViewController: UICollectionViewDelegate {
+//
+//}
+//
+//extension ViewController: UICollectionViewDataSource {
+//
+//}
+//
+//extension ViewController: UICollectionViewFlowLayout {
+//
+//}
+
