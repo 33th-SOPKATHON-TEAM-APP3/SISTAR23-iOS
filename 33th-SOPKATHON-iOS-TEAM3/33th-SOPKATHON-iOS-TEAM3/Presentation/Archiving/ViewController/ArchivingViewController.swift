@@ -33,6 +33,7 @@ final class ArchivingViewController: UIViewController {
 extension ArchivingViewController {
     func setUI() {
         self.view.backgroundColor = .grey7
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     func setHierarchy() {
@@ -46,7 +47,7 @@ extension ArchivingViewController {
     }
     
     func setDelegate() {
-
+        archivingView.archivingViewCellDelegate = self
     }
 }
 
@@ -70,3 +71,9 @@ extension ArchivingViewController {
 //
 //}
 
+extension ArchivingViewController: ArchivingViewCellDelegate {
+    func cellClicked() {
+        let rootVC = ArchivingDetailViewController()
+        self.navigationController?.pushViewController(rootVC, animated: true)
+    }
+}

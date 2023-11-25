@@ -8,7 +8,7 @@
 import UIKit
 
 enum ImageLiterals {
-//    enum WaitingDetail {
-//        static var tag_call: UIImage { .load(name: "tag_call_detail_1") }
-//    }
+    enum Archiving {
+        static var illu_cha_3: UIImage { .load(name: "illu_cha_3") }
+    }
 }

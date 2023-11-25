@@ -10,9 +10,7 @@ import UIKit
 import Then
 import SnapKit
 
-class ArchivingDetailAnswerView: UIView {
-    
-    // MARK: - Properties
+final class ArchivingDetailAnswerView: UIView {
     
     // MARK: - UI Properties
     

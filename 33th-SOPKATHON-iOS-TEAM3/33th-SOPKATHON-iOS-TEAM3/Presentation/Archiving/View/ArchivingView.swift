@@ -9,15 +9,21 @@ import UIKit
 import SnapKit
 import Then
 
+protocol ArchivingViewCellDelegate: AnyObject {
+    func cellClicked()
+}
+
 final class ArchivingView: UIView {
 
     // MARK: - Properties
     
-    var index: Int = 0
+    weak var archivingViewCellDelegate: ArchivingViewCellDelegate?
     
     // MARK: - UI Components
     
-    private let characterImage = UIImageView()
+    private let characterImage = UIImageView().then {
+        $0.image = ImageLiterals.Archiving.illu_cha_3
+    }
     
     private let todayLabel = UILabel().then {
         $0.text = "오늘의 질문"
@@ -59,6 +65,7 @@ final class ArchivingView: UIView {
         setAddTarget()
         setDelegate()
         setRegisterCell()
+        setupGestureRecognizer()
     }
     
     @available(*, unavailable)
@@ -133,6 +140,17 @@ extension ArchivingView {
     func setDataBind() {
         
     }
+    
+    private func setupGestureRecognizer() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewClicked))
+        todayQuestionView.addGestureRecognizer(tapGestureRecognizer)
+        todayQuestionView.isUserInteractionEnabled = false
+    }
+    
+    @objc
+    func viewClicked() {
+        archivingViewCellDelegate?.cellClicked()
+    }
 }
 
 // MARK: - TableView Delegate
@@ -155,6 +173,10 @@ extension ArchivingView: UITableViewDataSource {
         let cell = ArchivingTableViewCell.dequeueReusableCell(tableView: questionTableView)
         cell.selectionStyle = .none
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        archivingViewCellDelegate?.cellClicked()
     }
 }
 

@@ -73,7 +73,7 @@ private extension SavedAlertViewController {
     
     @objc
     func buttonTapped() {
-        self.dismiss(animated: false)
+        self.dismiss(animated: true)
     }
 }
 
