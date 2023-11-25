@@ -37,7 +37,7 @@ final class ArchivingTableViewCell: UITableViewCell, UITableViewRegisterable {
 // MARK: - Extensions
 extension ArchivingTableViewCell {
     func setUI() {
-        self.backgroundColor = .black
+        self.backgroundColor = .white
     }
     
     func setHierarchy() {
@@ -47,6 +47,8 @@ extension ArchivingTableViewCell {
     func setLayout() {
         questionLabel.snp.makeConstraints {
             $0.center.equalToSuperview()
+            $0.width.equalTo(303)
+            $0.height.equalTo(44)
         }
     }
 }

@@ -9,14 +9,10 @@ import UIKit
 import SnapKit
 
 final class ArchivingHeaderView: UIView {
-
-    // MARK: - Properties
-    
-    var index: Int = 0
     
     // MARK: - UI Components
     
-    private let questionHeaderLabel = UILabel()
+    let questionHeaderLabel = UILabel()
     
     // MARK: - Life Cycles
     
@@ -26,8 +22,6 @@ final class ArchivingHeaderView: UIView {
         setUI()
         setHierarchy()
         setLayout()
-        setAddTarget()
-        setRegisterCell()
     }
     
     @available(*, unavailable)
@@ -39,32 +33,23 @@ final class ArchivingHeaderView: UIView {
 // MARK: - Extensions
 extension ArchivingHeaderView {
     func setUI() {
-        
+        self.backgroundColor = .clear
     }
     
     func setHierarchy() {
-
+        self.addSubviews(questionHeaderLabel)
     }
     
     func setLayout() {
-
+        questionHeaderLabel.snp.makeConstraints {
+            $0.top.leading.equalToSuperview()
+            $0.width.equalTo(120)
+            $0.height.equalTo(30)
+        }
     }
     
-    func setAddTarget() {
-
-    }
-    
-    @objc
-    func buttonTapped() {
-        
-    }
-    
-    func setRegisterCell() {
-        
-    }
-    
-    func setDataBind() {
-        
+    func setDataBind(headerName: String) {
+        questionHeaderLabel.text = headerName
     }
 }
 

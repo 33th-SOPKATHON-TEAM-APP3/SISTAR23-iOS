@@ -32,7 +32,7 @@ final class ArchivingViewController: UIViewController {
 // MARK: - Extensions
 extension ArchivingViewController {
     func setUI() {
-        
+        self.view.backgroundColor = .grey7
     }
     
     func setHierarchy() {
@@ -46,7 +46,7 @@ extension ArchivingViewController {
     }
     
     func setDelegate() {
-        
+
     }
 }
 

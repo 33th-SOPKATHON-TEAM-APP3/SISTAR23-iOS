@@ -19,9 +19,12 @@ final class ArchivingView: UIView {
     
     private let characterImage = UIImageView()
     
-    private let questionTableView = UITableView(frame: .zero, style: .insetGrouped).then {
-        $0.backgroundColor = .black
+    private let questionTableView = UITableView(frame: .zero, style: .plain).then {
+        $0.isScrollEnabled = false
+        $0.backgroundColor = .grey7
     }
+    
+    private let archivingHeaderView = ArchivingHeaderView()
     
     // MARK: - Life Cycles
     
@@ -32,6 +35,7 @@ final class ArchivingView: UIView {
         setHierarchy()
         setLayout()
         setAddTarget()
+        setDelegate()
         setRegisterCell()
     }
     
@@ -69,17 +73,57 @@ extension ArchivingView {
 
     }
     
-    @objc
-    func buttonTapped() {
-        
+    func setDelegate() {
+        questionTableView.dataSource = self
+        questionTableView.delegate = self
     }
     
     func setRegisterCell() {
         ArchivingTableViewCell.register(tableView: questionTableView)
+        questionTableView.tableHeaderView = archivingHeaderView
     }
     
     func setDataBind() {
         
+    }
+}
+
+// MARK: - TableView Delegate
+extension ArchivingView: UITableViewDelegate { 
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 82
+    }
+    
+}
+
+// MARK: - TableView DataSource
+extension ArchivingView: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "ArchivingHeaderView")
+        return headerView
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            return 1
+        case 1:
+            return 5
+        default:
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = ArchivingTableViewCell.dequeueReusableCell(tableView: questionTableView)
+        cell.selectionStyle = .none
+        return cell
     }
 }
 
