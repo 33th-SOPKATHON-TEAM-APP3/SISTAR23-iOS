@@ -163,7 +163,7 @@
 				399B935A2B123B6E00B4E80E /* Question */,
 				399B93612B123BD300B4E80E /* SaveComplete */,
 				399B93642B123C0800B4E80E /* Archiving */,
-				399B936F2B123C6E00B4E80E /* ArchivingDetatil */,
+				399B936F2B123C6E00B4E80E /* ArchivingDetail */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -378,13 +378,13 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		399B936F2B123C6E00B4E80E /* ArchivingDetatil */ = {
+		399B936F2B123C6E00B4E80E /* ArchivingDetail */ = {
 			isa = PBXGroup;
 			children = (
 				399B93712B123C7D00B4E80E /* View */,
 				399B93702B123C7700B4E80E /* ViewController */,
 			);
-			path = ArchivingDetatil;
+			path = ArchivingDetail;
 			sourceTree = "<group>";
 		};
 		399B93702B123C7700B4E80E /* ViewController */ = {
