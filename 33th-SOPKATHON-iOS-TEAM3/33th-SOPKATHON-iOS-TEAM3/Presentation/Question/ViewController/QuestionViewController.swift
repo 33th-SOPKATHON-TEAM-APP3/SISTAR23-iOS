@@ -32,7 +32,7 @@ final class QuestionViewController: UIViewController {
         getTodayQuestion()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         if isFirstTimeKeyboardShown {
             let textView = myView.textView
             textView.becomeFirstResponder()
@@ -44,7 +44,7 @@ final class QuestionViewController: UIViewController {
 // MARK: - Extensions
 extension QuestionViewController {
     func setUI() {
-        
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     func setHierarchy() {
