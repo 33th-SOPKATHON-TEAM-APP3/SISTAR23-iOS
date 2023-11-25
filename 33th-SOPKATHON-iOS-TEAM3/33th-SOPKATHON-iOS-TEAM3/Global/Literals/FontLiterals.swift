@@ -15,6 +15,12 @@ enum FontName: String {
 
 extension UIFont {
     
+    // MARK: - BigLargeTitle
+
+    class var bigLargeTitle1: UIFont {
+        return UIFont.font(.pretendardBold, ofSize: 30)
+    }
+    
     // MARK: - LargeTitle
     
     class var largeTitle1: UIFont {
