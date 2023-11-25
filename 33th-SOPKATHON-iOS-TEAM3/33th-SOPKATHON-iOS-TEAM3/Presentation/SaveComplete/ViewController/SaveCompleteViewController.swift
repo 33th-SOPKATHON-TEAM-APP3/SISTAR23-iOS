@@ -8,9 +8,15 @@
 import UIKit
 
 import SnapKit
+import Then
 
 final class SaveCompleteViewController: UIViewController {
-        
+    
+    private let backgroundImageView = UIImageView().then {
+        $0.contentMode = .scaleAspectFill
+        $0.image = UIImage(named: "illu_back_2")
+    }
+    
     private let rootView = SaveCompleteView()
     
     override func viewDidLoad() {
@@ -28,10 +34,13 @@ private extension SaveCompleteViewController {
     }
     
     func setHierarchy() {
-        view.addSubview(rootView)
+        view.addSubviews(backgroundImageView, rootView)
     }
     
     func setLayout() {
+        backgroundImageView.snp.makeConstraints {
+            $0.edges.equalTo(view.safeAreaLayoutGuide)
+        }
         rootView.snp.makeConstraints {
             $0.edges.equalTo(view.safeAreaLayoutGuide)
         }
