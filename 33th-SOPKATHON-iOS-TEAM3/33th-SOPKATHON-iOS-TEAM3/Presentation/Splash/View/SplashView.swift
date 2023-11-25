@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  SplashView.swift
 //  33th-SOPKATHON-iOS-TEAM3
 //
 //  Created by 민 on 11/25/23.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class MainView: UIView {
+final class SplashView: UIView {
 
     // MARK: - Properties
     
@@ -51,7 +51,7 @@ final class MainView: UIView {
 }
 
 // MARK: - Extensions
-extension MainView {
+extension SplashView {
     func setUI() {
         
     }

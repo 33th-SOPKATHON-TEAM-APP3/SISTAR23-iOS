@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  SplashViewController.swift
 //  33th-SOPKATHON-iOS-TEAM3
 //
 //  Created by 민 on 11/25/23.
@@ -8,7 +8,7 @@
 import UIKit
 import SnapKit
 
-final class MainViewController: UIViewController {
+final class SplashViewController: UIViewController {
 
     // MARK: - Properties
     
@@ -36,7 +36,7 @@ final class MainViewController: UIViewController {
 }
 
 // MARK: - Extensions
-extension MainViewController {
+extension SplashViewController {
     func setUI() {
         self.view.backgroundColor = .white
     }
@@ -56,7 +56,7 @@ extension MainViewController {
 
 // MARK: - Network
 
-extension MainViewController {
+extension SplashViewController {
     func getAPI() {
         
     }
