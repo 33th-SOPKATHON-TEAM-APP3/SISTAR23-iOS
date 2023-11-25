@@ -20,7 +20,7 @@ final class SaveCompleteView: UIView {
     
     public let completeImageView = UIImageView().then {
         $0.contentMode = .scaleAspectFit
-        $0.backgroundColor = .grey4
+        $0.image = UIImage(named: "illu_cha_2")
     }
     
     public let dotView = UIView().then {
