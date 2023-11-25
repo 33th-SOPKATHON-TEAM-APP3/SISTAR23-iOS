@@ -50,7 +50,7 @@ final class QuestionAPI {
     
     private func judgeTodayQuestionStatus(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
         let decoder = JSONDecoder()
-        guard let decodedData = try? decoder.decode(GenericResponse<TodayQuestionModel>.self, from: data)
+        guard let decodedData = try? decoder.decode(GenericResponse<QuestionModel>.self, from: data)
         else {
             return .pathErr
         }

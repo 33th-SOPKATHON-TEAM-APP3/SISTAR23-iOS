@@ -14,6 +14,8 @@ final class SplashViewController: UIViewController {
 
     // MARK: - Properties
     
+    let uuid = UIDevice.current.identifierForVendor?.uuidString
+    
     // MARK: - UI Components
     
     private let backgroundImageView = UIImageView().then {
@@ -28,11 +30,13 @@ final class SplashViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getAPI()
         setUI()
         setHierarchy()
         setLayout()
         setDelegate()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
+            self.signup()
+        }
     }
 }
 
@@ -60,19 +64,29 @@ extension SplashViewController {
 // MARK: - Network
 
 extension SplashViewController {
-    func getAPI() {
-        
+    func signup() {
+        UserAPI.shared.signup(deviceId: uuid!, completion: { (response) in
+            switch response {
+            case .success(let data):
+                print("success", data)
+                // 데이터 가져온 후
+                if let data = data as? UserModel {
+                    UserDefaults.standard.setValue(data.userId, forKey: "USER_ID")
+                    if data.isAnswered {
+                        self.navigationController?.pushViewController(ArchivingViewController(), animated: true)
+                    } else {
+                        self.navigationController?.pushViewController(QuestionViewController(), animated: true)
+                    }
+                }
+            case .requestErr(let statusCode):
+                print("requestErr", statusCode)
+            case .pathErr:
+                print(".pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        })
     }
 }
-
-//extension ViewController: UICollectionViewDelegate {
-//
-//}
-//
-//extension ViewController: UICollectionViewDataSource {
-//
-//}
-//
-//extension ViewController: UICollectionViewFlowLayout {
-//
-//}

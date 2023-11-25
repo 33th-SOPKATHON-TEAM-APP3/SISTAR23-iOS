@@ -12,6 +12,8 @@ final class ArchivingViewController: UIViewController {
 
     // MARK: - Properties
     
+    var questionList: [QuestionModel] = []
+    
     // MARK: - UI Components
     
     private let archivingView = ArchivingView()
@@ -21,11 +23,11 @@ final class ArchivingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getAPI()
         setUI()
         setHierarchy()
         setLayout()
         setDelegate()
+        getTodayQuestion()
     }
 }
 
@@ -47,29 +49,72 @@ extension ArchivingViewController {
     }
     
     func setDelegate() {
-        archivingView.archivingViewCellDelegate = self
+        archivingView.questionTableView.dataSource = self
+        archivingView.questionTableView.delegate = self
     }
 }
 
 // MARK: - Network
 
 extension ArchivingViewController {
-    func getAPI() {
-        
+    
+    func getTodayQuestion() {
+        QuestionAPI.shared.getQuestionList(userId: UserDefaults.standard.integer(forKey: "USER_ID"), completion: { (response) in
+            switch response {
+            case .success(let data):
+                print("success", data)
+                // 데이터 가져온 후
+                if let data = data as? QuestionListModel {
+                    self.archivingView.todayQuestionLabel.text = data.todayQuestion.questionName
+                    self.questionList = data.questionList
+                    self.archivingView.questionTableView.reloadData()
+                }
+            case .requestErr(let statusCode):
+                print("requestErr", statusCode)
+            case .pathErr:
+                print(".pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        })
     }
+
 }
 
-//extension ViewController: UICollectionViewDelegate {
-//
-//}
-//
-//extension ViewController: UICollectionViewDataSource {
-//
-//}
-//
-//extension ViewController: UICollectionViewFlowLayout {
-//
-//}
+
+// MARK: - TableView Delegate
+extension ArchivingViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 94
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = ArchivingDetailViewController()
+        vc.questionId = questionList[indexPath.row].questionId
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+}
+
+// MARK: - TableView DataSource
+extension ArchivingViewController: UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = ArchivingTableViewCell.dequeueReusableCell(tableView: archivingView.questionTableView)
+        cell.selectionStyle = .none
+        
+        cell.bindData(title: questionList[indexPath.row].questionName)
+        return cell
+    }
+}
 
 extension ArchivingViewController: ArchivingViewCellDelegate {
     func cellClicked() {

@@ -15,6 +15,8 @@ class ArchivingDetailViewController: UIViewController {
     
     // MARK: - Properties
     
+    public var questionId: Int = 0
+    
     // MARK: - UI Properties
     
     private let captureButton = UIButton()
@@ -51,6 +53,49 @@ class ArchivingDetailViewController: UIViewController {
 // MARK: - Private Method
 
 private extension ArchivingDetailViewController {
+    func getMyAnswer() {
+        AnswerAPI.shared.getMyAnswer(questionId: questionId, userId: UserDefaults.standard.integer(forKey: "USER_ID"), completion: { (response) in
+            switch response {
+            case .success(let data):
+                print("success", data)
+                // 데이터 가져온 후
+                if let data = data as? MyAnswerModel {
+                    self.questionLabel.text = data.questionDto.questionName
+                    self.myAnswerCardView.contentLabel.text = data.myAnswer
+                }
+            case .requestErr(let statusCode):
+                print("requestErr", statusCode)
+            case .pathErr:
+                print(".pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        })
+    }
+    
+    func getRandomAnswer() {
+        AnswerAPI.shared.getRandomAnswer(questionId: questionId, userId: UserDefaults.standard.integer(forKey: "USER_ID"), completion: { (response) in
+            switch response {
+            case .success(let data):
+                print("success", data)
+                // 데이터 가져온 후
+                if let data = data as? RandomAnswerModel {
+                    self.othersAnswerCardView.contentLabel.text = data.randomAnswer
+                }
+            case .requestErr(let statusCode):
+                print("requestErr", statusCode)
+            case .pathErr:
+                print(".pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        })
+    }
+    
     func setAddTarget() {
         captureButton.addTarget(self, action: #selector(imageButtonTapped), for: .touchUpInside)
         backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
