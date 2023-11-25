@@ -8,8 +8,16 @@
 import UIKit
 import SnapKit
 
-final class QuestionView: UIView {
+protocol HomeViewPushDelegate: AnyObject {
+    func didTapButton(questionId: Int, userId: Int, answer: String)
+}
+
+
+final class QuestionView: UIView, UIGestureRecognizerDelegate {
     
+    weak var delegate: HomeViewPushDelegate?
+    
+
     // MARK: - Properties
     
     var index: Int = 0
@@ -19,7 +27,7 @@ final class QuestionView: UIView {
     private let iconImageView: UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFill
-        image.image = UIImage(systemName: "apple.logo")
+        image.image = UIImage(named: "question_ico")
         return image
     }()
     
@@ -40,9 +48,9 @@ final class QuestionView: UIView {
     lazy var textView : UITextView = {
          let value : UITextView = UITextView()
         
-         value.textColor = UIColor.red
+        value.textColor = .black
          value.textAlignment = NSTextAlignment.left
-         value.font = UIFont.systemFont(ofSize: CGFloat(20))
+        value.font = .body2
          value.layer.masksToBounds = true
         
         value.becomeFirstResponder()
@@ -71,7 +79,7 @@ final class QuestionView: UIView {
         return label
     }()
     
-    private lazy var saveButton: UIButton = {
+    lazy var saveButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .pink
         button.setButtonAttributedTitle(text: "답변 저장하기", font: .subTitle3, color: .white)
@@ -136,6 +144,7 @@ extension QuestionView {
             $0.width.equalTo(343)
             $0.trailing.equalToSuperview().inset(16)
             $0.top.equalTo(answerContainerView.snp.bottom).offset(44)
+    
         }
         
         questionLabel.snp.makeConstraints() {
@@ -164,15 +173,22 @@ extension QuestionView {
             $0.height.equalTo(22)
             $0.width.equalTo(22)
         }
+        
+        iconImageView.snp.makeConstraints() {
+            $0.leading.equalToSuperview()
+            $0.top.equalToSuperview().offset(86)
+            $0.height.equalTo(195)
+            $0.width.equalTo(195)
+        }
     }
     
     func setAddTarget() {
-        
+        saveButton.addTarget(self, action: #selector(onTapButton), for: .touchUpInside)
     }
     
-    @objc
-    func buttonTapped() {
-        
+    @objc func onTapButton() {
+        print("tap")
+        self.delegate?.didTapButton(questionId: 1, userId: 1, answer: textView.text)
     }
     
     func setRegisterCell() {
@@ -183,7 +199,8 @@ extension QuestionView {
         
     }
     
-//    func bindData(data: QuestionModel) {
-//        self.myLocationLabel.text = data.questionName
-//    }
+    func bindData(data: QuestionModel) {
+        self.questionLabel.text = data.questionName
+    }
 }
+
