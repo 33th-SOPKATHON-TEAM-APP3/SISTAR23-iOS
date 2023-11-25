@@ -52,8 +52,8 @@
 		399B93802B123F1F00B4E80E /* ArchivingAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399B937F2B123F1F00B4E80E /* ArchivingAPI.swift */; };
 		399B93822B123F2900B4E80E /* ArchivingDetailAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399B93812B123F2900B4E80E /* ArchivingDetailAPI.swift */; };
 		399B93842B123F3B00B4E80E /* URLConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399B93832B123F3B00B4E80E /* URLConstant.swift */; };
-		399B93892B12403000B4E80E /* ArchivingEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399B93882B12403000B4E80E /* ArchivingEntity.swift */; };
-		399B938B2B12403E00B4E80E /* ArchivingDetailEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399B938A2B12403E00B4E80E /* ArchivingDetailEntity.swift */; };
+		CDF6323C2B125D940014EB66 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF6323B2B125D940014EB66 /* UserEntity.swift */; };
+		CDF6323E2B125DE10014EB66 /* AnswerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDF6323D2B125DE10014EB66 /* AnswerEntity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -97,8 +97,8 @@
 		399B937F2B123F1F00B4E80E /* ArchivingAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingAPI.swift; sourceTree = "<group>"; };
 		399B93812B123F2900B4E80E /* ArchivingDetailAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingDetailAPI.swift; sourceTree = "<group>"; };
 		399B93832B123F3B00B4E80E /* URLConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConstant.swift; sourceTree = "<group>"; };
-		399B93882B12403000B4E80E /* ArchivingEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingEntity.swift; sourceTree = "<group>"; };
-		399B938A2B12403E00B4E80E /* ArchivingDetailEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingDetailEntity.swift; sourceTree = "<group>"; };
+		CDF6323B2B125D940014EB66 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
+		CDF6323D2B125DE10014EB66 /* AnswerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerEntity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,9 +243,9 @@
 		392EF5342B11F8430048F09C /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				CDF6323B2B125D940014EB66 /* UserEntity.swift */,
 				392EF5642B11FCDF0048F09C /* QuestionEntity.swift */,
-				399B93882B12403000B4E80E /* ArchivingEntity.swift */,
-				399B938A2B12403E00B4E80E /* ArchivingDetailEntity.swift */,
+				CDF6323D2B125DE10014EB66 /* AnswerEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -525,15 +525,13 @@
 				392EF5632B11FCA00048F09C /* UIStackView+Extension.swift in Sources */,
 				392EF5182B11F6410048F09C /* AppDelegate.swift in Sources */,
 				392EF5592B11FBC60048F09C /* UICollectionViewRegisterable.swift in Sources */,
-				399B93892B12403000B4E80E /* ArchivingEntity.swift in Sources */,
 				399B93602B123BB800B4E80E /* QuestionViewController.swift in Sources */,
 				399B937E2B123F1100B4E80E /* QuestionAPI.swift in Sources */,
-				399B93822B123F2900B4E80E /* ArchivingDetailAPI.swift in Sources */,
 				399B93662B123C1F00B4E80E /* SaveCompleteViewController.swift in Sources */,
 				399B93592B1239F800B4E80E /* GenericResponse.swift in Sources */,
 				399B936C2B123C4C00B4E80E /* ArchivingView.swift in Sources */,
-				399B938B2B12403E00B4E80E /* ArchivingDetailEntity.swift in Sources */,
 				392EF56E2B11FEAC0048F09C /* UIButton+Extension.swift in Sources */,
+				CDF6323E2B125DE10014EB66 /* AnswerEntity.swift in Sources */,
 				399B93842B123F3B00B4E80E /* URLConstant.swift in Sources */,
 				392EF5612B11FC550048F09C /* UILabel+Extension.swift in Sources */,
 				399B93732B123C8600B4E80E /* ArchivingDetatilViewController.swift in Sources */,
@@ -542,6 +540,7 @@
 				399B93752B123C9100B4E80E /* ArchivingDetatilView.swift in Sources */,
 				392EF5502B11FA830048F09C /* ColorLiterals.swift in Sources */,
 				392EF56C2B11FE700048F09C /* QuestionService.swift in Sources */,
+				CDF6323C2B125D940014EB66 /* UserEntity.swift in Sources */,
 				392EF55D2B11FBFE0048F09C /* CALayer+Extension.swift in Sources */,
 				399B93682B123C2F00B4E80E /* SaveCompleteView.swift in Sources */,
 				399B937B2B123DC700B4E80E /* MoyaLoggerPlugin.swift in Sources */,
