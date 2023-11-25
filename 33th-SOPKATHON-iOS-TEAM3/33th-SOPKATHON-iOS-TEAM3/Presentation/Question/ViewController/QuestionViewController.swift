@@ -9,18 +9,6 @@ import UIKit
 import SnapKit
 
 final class QuestionViewController: UIViewController {
-//    let provider = MoyaProvider<QuestionAPI>()
-//            provider.request(.randomJokes("GilDong", "Hong")) { (result) in
-//                switch result {
-//                case let .success(response):
-//                    let result = try? response.map(Joke.self)
-//                    self.jokeTextView.text = result?.value.joke
-//                case let .failure(error):
-//                    print(error.localizedDescription)
-//                }
-//                
-//            }
-    
     private var isFirstTimeKeyboardShown = true
     
     private let myView = QuestionView()
@@ -42,6 +30,7 @@ final class QuestionViewController: UIViewController {
         setHierarchy()
         setLayout()
         setDelegate()
+//        getTodayQuestion()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -51,6 +40,23 @@ final class QuestionViewController: UIViewController {
             isFirstTimeKeyboardShown = false
         }
     }
+    
+    func getTodayQuestion() {
+            QuestionAPI.shared.getTodayQuestion(completion: { (response) in
+                switch response {
+                case .success(let data):
+                    print("success", data)
+                case .requestErr(let statusCode):
+                    print("requestErr", statusCode)
+                case .pathErr:
+                    print(".pathErr")
+                case .serverErr:
+                    print("serverErr")
+                case .networkFail:
+                    print("networkFail")
+                }
+            })
+        }
 }
 
 // MARK: - Extensions
@@ -75,10 +81,36 @@ extension QuestionViewController {
 // MARK: - Network
 
 extension QuestionViewController {
+    
+    
     func getAPI() {
         
     }
+    
+    func postTodayAnswer(questionId: Int, userId: Int, answer: String) {
+        AnswerAPI.shared.postTodayAnswer(questionId: questionId, userId: userId, answer: answer, completion: { (response) in
+            switch response {
+            case .success(let data):
+                print("success", data)
+                let saveCompleteVC = SaveCompleteViewController()
+                self.navigationController?.pushViewController(saveCompleteVC, animated: true)
+                // 데이터 가져온 후
+            case .requestErr(let statusCode):
+                print("requestErr", statusCode)
+            case .pathErr:
+                print(".pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        })
+    }
 }
 
-extension QuestionViewController: UITextViewDelegate {
+extension QuestionViewController: HomeViewPushDelegate {
+    func didTapButton(questionId: Int, userId: Int, answer: String) {
+        postTodayAnswer(questionId: questionId, userId: userId, answer: answer)
+        print("didTapButton")
+    }
 }

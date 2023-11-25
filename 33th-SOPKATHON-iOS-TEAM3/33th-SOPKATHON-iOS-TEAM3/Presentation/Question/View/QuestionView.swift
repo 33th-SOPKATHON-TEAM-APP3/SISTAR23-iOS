@@ -8,8 +8,16 @@
 import UIKit
 import SnapKit
 
-final class QuestionView: UIView {
+protocol HomeViewPushDelegate: AnyObject {
+    func didTapButton(questionId: Int, userId: Int, answer: String)
+}
+
+
+final class QuestionView: UIView, UIGestureRecognizerDelegate {
     
+    weak var delegate: HomeViewPushDelegate?
+    
+
     // MARK: - Properties
     
     var index: Int = 0
@@ -71,7 +79,7 @@ final class QuestionView: UIView {
         return label
     }()
     
-    private lazy var saveButton: UIButton = {
+    lazy var saveButton: UIButton = {
         let button = UIButton()
         button.backgroundColor = .pink
         button.setButtonAttributedTitle(text: "답변 저장하기", font: .subTitle3, color: .white)
@@ -136,8 +144,7 @@ extension QuestionView {
             $0.width.equalTo(343)
             $0.trailing.equalToSuperview().inset(16)
             $0.top.equalTo(answerContainerView.snp.bottom).offset(44)
-            
-            
+    
         }
         
         questionLabel.snp.makeConstraints() {
@@ -176,12 +183,12 @@ extension QuestionView {
     }
     
     func setAddTarget() {
-        
+        saveButton.addTarget(self, action: #selector(onTapButton), for: .touchUpInside)
     }
     
-    @objc
-    func buttonTapped() {
-        
+    @objc func onTapButton() {
+        print("tap")
+        self.delegate?.didTapButton(questionId: 1, userId: 1, answer: textView.text)
     }
     
     func setRegisterCell() {
@@ -196,3 +203,4 @@ extension QuestionView {
         self.questionLabel.text = data.questionName
     }
 }
+
