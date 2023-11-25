@@ -13,6 +13,7 @@ final class ArchivingViewController: UIViewController {
     // MARK: - Properties
     
     var questionList: [QuestionModel] = []
+    var todayQuestionId: Int = 0
     
     // MARK: - UI Components
     
@@ -23,11 +24,13 @@ final class ArchivingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setUI()
-        setHierarchy()
-        setLayout()
-        setDelegate()
-        getTodayQuestion()
+        getQuestionList {
+            self.setUI()
+            self.setHierarchy()
+            self.setLayout()
+            self.setDelegate()
+            self.setupGestureRecognizer()
+        }
     }
 }
 
@@ -52,22 +55,36 @@ extension ArchivingViewController {
         archivingView.questionTableView.dataSource = self
         archivingView.questionTableView.delegate = self
     }
+    
+    func setupGestureRecognizer() {
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(viewClicked))
+        archivingView.todayQuestionView.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc
+    func viewClicked() {
+        let vc = ArchivingDetailViewController()
+        vc.questionId = self.todayQuestionId
+        
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 
 // MARK: - Network
 
 extension ArchivingViewController {
     
-    func getTodayQuestion() {
+    func getQuestionList(completion: @escaping() -> Void) {
         QuestionAPI.shared.getQuestionList(userId: UserDefaults.standard.integer(forKey: "USER_ID"), completion: { (response) in
             switch response {
             case .success(let data):
-                print("success", data)
                 // 데이터 가져온 후
                 if let data = data as? QuestionListModel {
+                    self.todayQuestionId = data.todayQuestion.questionId
                     self.archivingView.todayQuestionLabel.text = data.todayQuestion.questionName
                     self.questionList = data.questionList
                     self.archivingView.questionTableView.reloadData()
+                    completion()
                 }
             case .requestErr(let statusCode):
                 print("requestErr", statusCode)
@@ -104,7 +121,7 @@ extension ArchivingViewController: UITableViewDelegate {
 extension ArchivingViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return questionList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -113,12 +130,5 @@ extension ArchivingViewController: UITableViewDataSource {
         
         cell.bindData(title: questionList[indexPath.row].questionName)
         return cell
-    }
-}
-
-extension ArchivingViewController: ArchivingViewCellDelegate {
-    func cellClicked() {
-        let rootVC = ArchivingDetailViewController()
-        self.navigationController?.pushViewController(rootVC, animated: true)
     }
 }

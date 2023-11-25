@@ -9,16 +9,10 @@ import UIKit
 import SnapKit
 import Then
 
-protocol ArchivingViewCellDelegate: AnyObject {
-    func cellClicked()
-}
-
 final class ArchivingView: UIView {
 
     // MARK: - Properties
-    
-    weak var archivingViewCellDelegate: ArchivingViewCellDelegate?
-    
+        
     // MARK: - UI Components
     
     private let characterImage = UIImageView().then {
@@ -31,13 +25,12 @@ final class ArchivingView: UIView {
         $0.font = .title3
     }
     
-    private let todayQuestionView = UIView().then {
+    public let todayQuestionView = UIView().then {
         $0.backgroundColor = .white
         $0.layer.cornerRadius = 4
     }
     
     public let todayQuestionLabel = UILabel().then {
-        $0.text = "노트북 배터리가 0% 상태에서 정전이 되었다. 당신의 기분은?"
         $0.textColor = .pinkPale
         $0.font = .subTitle3
         $0.numberOfLines = 2
@@ -65,7 +58,6 @@ final class ArchivingView: UIView {
         setAddTarget()
         setDelegate()
         setRegisterCell()
-        setupGestureRecognizer()
     }
     
     @available(*, unavailable)
@@ -125,11 +117,11 @@ extension ArchivingView {
     }
     
     func setAddTarget() {
-
+        
     }
     
     func setDelegate() {
-
+        
     }
     
     func setRegisterCell() {
@@ -138,5 +130,6 @@ extension ArchivingView {
     
     func setDataBind() {
         
-    }}
+    }
+}
 

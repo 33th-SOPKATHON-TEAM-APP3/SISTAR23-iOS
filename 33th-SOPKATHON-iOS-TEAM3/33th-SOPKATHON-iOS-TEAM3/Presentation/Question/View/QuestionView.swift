@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 protocol QuestionViewButtonDelegate: AnyObject {
-    func saveButtonClicked()
+    func saveButtonClicked(questionId: Int, userId: Int, answer: String)
 }
 
 final class QuestionView: UIView, UIGestureRecognizerDelegate {
@@ -184,12 +184,12 @@ extension QuestionView {
     }
     
     func setAddTarget() {
-        saveButton.addTarget(self, action: #selector(saveButtonButtonTapped), for: .touchUpInside)
+        saveButton.addTarget(self, action: #selector(onTapButton), for: .touchUpInside)
     }
     
     @objc func onTapButton() {
         print("tap")
-        self.delegate?.didTapButton(questionId: questionId, userId: UserDefaults.standard.integer(forKey: "USER_ID"), answer: textView.text)
+        self.questionViewButtonDelegate?.saveButtonClicked(questionId: questionId, userId: UserDefaults.standard.integer(forKey: "USER_ID"), answer: textView.text)
     }
     
     func setRegisterCell() {
