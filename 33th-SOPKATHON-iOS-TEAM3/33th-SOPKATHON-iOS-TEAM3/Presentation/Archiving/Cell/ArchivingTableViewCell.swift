@@ -14,8 +14,15 @@ final class ArchivingTableViewCell: UITableViewCell, UITableViewRegisterable {
     
     // MARK: - UI Components
     
+    private let whiteBackgroundView = UIView().then {
+        $0.backgroundColor = .white
+        $0.layer.cornerRadius = 4
+    }
+    
     private let questionLabel = UILabel().then {
         $0.numberOfLines = 2
+        $0.font = .subTitle2
+        $0.textColor = .grey6
         $0.text = "노트북 배터리가 0% 상태에서 정전이 되었다. 당신의 기분은?"
     }
     
@@ -37,14 +44,21 @@ final class ArchivingTableViewCell: UITableViewCell, UITableViewRegisterable {
 // MARK: - Extensions
 extension ArchivingTableViewCell {
     func setUI() {
-        self.backgroundColor = .white
+        self.backgroundColor = .grey7
     }
     
     func setHierarchy() {
-        addSubviews(questionLabel)
+        addSubviews(whiteBackgroundView)
+        whiteBackgroundView.addSubviews(questionLabel)
     }
     
     func setLayout() {
+        whiteBackgroundView.snp.makeConstraints {
+            $0.top.equalToSuperview()
+            $0.width.equalToSuperview()
+            $0.height.equalTo(82)
+        }
+        
         questionLabel.snp.makeConstraints {
             $0.center.equalToSuperview()
             $0.width.equalTo(303)
