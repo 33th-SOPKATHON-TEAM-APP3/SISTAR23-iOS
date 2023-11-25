@@ -1,5 +1,5 @@
-# 🍀 있다 없으니까 (Gone Not Around Any Longer)
-
+# 🍀 왔당 (What Dang)
+: 뭐가 당연하냐는 뜻.
 
 ## 🙆🏻‍♀️🙅🏻‍♂️ 프로젝트 설명 
 🌟 33rd SOPT 해커톤, "솝커톤" iOS 3조
@@ -36,7 +36,7 @@
 ## 씨스타23이들의 일상
 | Before | After |
 | :--------: | :--------: | 
-| <img width="50%" alt="image" src="https://github.com/33th-SOPKATHON-TEAM-APP3/SISTAR23-iOS/assets/102219161/7a36a39b-b6fb-4175-a330-0883cc3a6424"> | 이미지 준비 중 ⚒️ |
+| <img width="50%" alt="image" src="https://github.com/33th-SOPKATHON-TEAM-APP3/SISTAR23-iOS/assets/102219161/7a36a39b-b6fb-4175-a330-0883cc3a6424"> | <img width="50%" src="https://github.com/33th-SOPKATHON-TEAM-APP3/SISTAR23-iOS/assets/102219161/65d9728f-f8d4-45e4-b2d7-de2101f1968a"> |
 
 
 
