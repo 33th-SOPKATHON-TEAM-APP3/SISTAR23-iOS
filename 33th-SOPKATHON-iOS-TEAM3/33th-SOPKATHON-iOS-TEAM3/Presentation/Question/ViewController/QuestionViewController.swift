@@ -74,7 +74,7 @@ extension QuestionViewController {
     }
     
     func setDelegate() {
-        
+        myView.questionViewButtonDelegate = self
     }
 }
 
@@ -108,9 +108,10 @@ extension QuestionViewController {
     }
 }
 
-extension QuestionViewController: HomeViewPushDelegate {
-    func didTapButton(questionId: Int, userId: Int, answer: String) {
-        postTodayAnswer(questionId: questionId, userId: userId, answer: answer)
-        print("didTapButton")
+extension QuestionViewController: QuestionViewButtonDelegate {
+    func saveButtonClicked() {
+        let rootVC = SaveCompleteViewController()
+        self.navigationController?.pushViewController(rootVC, animated: true)
     }
+    
 }
