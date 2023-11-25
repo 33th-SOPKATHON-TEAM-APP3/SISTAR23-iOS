@@ -6,7 +6,9 @@
 //
 
 import UIKit
+
 import SnapKit
+import Then
 
 final class SplashViewController: UIViewController {
 
@@ -14,15 +16,14 @@ final class SplashViewController: UIViewController {
     
     // MARK: - UI Components
     
+    private let backgroundImageView = UIImageView().then {
+        $0.contentMode = .scaleAspectFill
+        $0.image = UIImage(named: "illu_back_1")
+    }
+    
     private let myView = View()
     
     // MARK: - Life Cycles
-    
-    override func loadView() {
-        super.loadView()
-        
-        view = myView
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,15 +39,17 @@ final class SplashViewController: UIViewController {
 // MARK: - Extensions
 extension SplashViewController {
     func setUI() {
-        self.view.backgroundColor = .white
+
     }
     
     func setHierarchy() {
-        
+        view.addSubview(backgroundImageView)
     }
     
     func setLayout() {
-        
+        backgroundImageView.snp.makeConstraints {
+            $0.edges.equalTo(view.safeAreaLayoutGuide)
+        }
     }
     
     func setDelegate() {
