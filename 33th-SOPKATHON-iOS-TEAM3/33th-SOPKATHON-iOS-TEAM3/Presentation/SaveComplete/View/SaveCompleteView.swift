@@ -10,7 +10,15 @@ import UIKit
 import SnapKit
 import Then
 
+protocol SaveCompleteButtonDelegate: AnyObject {
+    func closeButtonClicked()
+}
+
 final class SaveCompleteView: UIView {
+    
+    // MARK: - Properties
+    
+    weak var saveCompleteButtonDelegate: SaveCompleteButtonDelegate?
     
     // MARK: - UI Components
     
@@ -47,6 +55,7 @@ final class SaveCompleteView: UIView {
         setUI()
         setHierarchy()
         setLayout()
+        setAddTarget()
     }
     
     required init?(coder: NSCoder) {
@@ -95,5 +104,14 @@ private extension SaveCompleteView {
             $0.bottom.equalToSuperview().inset(22)
             $0.height.equalTo(50)
         }
+    }
+    
+    func setAddTarget() {
+        closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
+    }
+    
+    @objc
+    func closeButtonTapped() {
+        saveCompleteButtonDelegate?.closeButtonClicked()
     }
 }
