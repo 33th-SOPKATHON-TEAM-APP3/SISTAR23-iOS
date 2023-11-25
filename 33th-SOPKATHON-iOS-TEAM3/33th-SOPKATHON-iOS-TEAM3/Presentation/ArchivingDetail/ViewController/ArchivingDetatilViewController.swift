@@ -19,6 +19,8 @@ class ArchivingDetailViewController: UIViewController {
     
     private let captureButton = UIButton()
     
+    private let backButton = UIButton()
+    
     private let capturedView = UIView()
     
     private lazy var createdAtLabel: UILabel = { createLabel(forFont: .caption1, forColor: .white, text: "11/25")}()
@@ -50,12 +52,18 @@ class ArchivingDetailViewController: UIViewController {
 
 private extension ArchivingDetailViewController {
     func setAddTarget() {
-        captureButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        captureButton.addTarget(self, action: #selector(imageButtonTapped), for: .touchUpInside)
+        backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
     }
     
     @objc
-    func buttonTapped() {
+    func imageButtonTapped() {
         saveImage()
+    }
+    
+    @objc
+    func backButtonTapped() {
+        self.navigationController?.popViewController(animated: true)
     }
     
     private func saveImage() {
@@ -68,6 +76,11 @@ private extension ArchivingDetailViewController {
                              didFinishSavingWithError error: Error?,
                              contextInfo: UnsafeRawPointer) {
         print("Save finished!")
+        let vc = SavedAlertViewController()
+        vc.modalTransitionStyle = .crossDissolve
+        vc.modalPresentationStyle = .overFullScreen
+        
+        self.present(vc, animated: true)
     }
     
     func setupStyles() {
@@ -81,11 +94,17 @@ private extension ArchivingDetailViewController {
     }
     
     func setupViews() {
-        view.addSubviews(capturedView, captureButton, dividingLine, othersAnswerCardView, randomButton)
+        view.addSubviews(capturedView, captureButton, backButton, dividingLine, othersAnswerCardView, randomButton)
         capturedView.addSubviews(createdAtLabel, questionLabel, detailImageView, myAnswerCardView)
     }
     
     func setupConstraints() {
+        backButton.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide).offset(10)
+            $0.leading.equalToSuperview().inset(14)
+            $0.size.equalTo(44)
+        }
+        
         captureButton.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide).offset(12)
             $0.trailing.equalToSuperview().inset(16)
@@ -149,6 +168,10 @@ private extension ArchivingDetailViewController {
             $0.layer.backgroundColor = UIColor.pink.cgColor
             $0.layer.cornerRadius = 8
             $0.clipsToBounds = true
+        }
+        
+        backButton.do {
+            $0.setImage(UIImage(named: "icn_backward"), for: .normal)
         }
         
         detailImageView.do {
