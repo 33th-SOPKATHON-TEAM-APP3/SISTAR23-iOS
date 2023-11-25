@@ -6,3 +6,17 @@
 //
 
 import Foundation
+
+struct TodayQuestionModel: Codable {
+    let question: String
+}
+
+struct QuestionListModel: Codable {
+    let todayQuestion: QuestionModel
+    let questionList: [QuestionModel]
+}
+
+struct QuestionModel: Codable {
+    let questionId: Int
+    let questionName: String
+}
