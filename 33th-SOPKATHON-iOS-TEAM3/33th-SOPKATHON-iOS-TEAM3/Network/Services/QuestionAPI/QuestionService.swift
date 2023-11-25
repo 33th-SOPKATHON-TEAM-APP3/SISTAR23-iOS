@@ -21,8 +21,10 @@ extension QuestionService: TargetType {
     
     var path: String {
         switch self {
-        case .getTodayQuestion, .getQuestionList:
+        case .getTodayQuestion:
             return URLConstant.questionURL
+        case .getQuestionList:
+            return URLConstant.questionURL + "/user"
         }
     }
     

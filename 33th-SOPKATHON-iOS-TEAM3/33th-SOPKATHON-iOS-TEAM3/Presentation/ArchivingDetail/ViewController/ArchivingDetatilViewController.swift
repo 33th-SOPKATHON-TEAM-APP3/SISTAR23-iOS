@@ -47,6 +47,8 @@ class ArchivingDetailViewController: UIViewController {
         setupConstraints()
         setupProperties()
         setAddTarget()
+        getMyAnswer()
+        getRandomAnswer()
     }
 }
 
@@ -99,6 +101,7 @@ private extension ArchivingDetailViewController {
     func setAddTarget() {
         captureButton.addTarget(self, action: #selector(imageButtonTapped), for: .touchUpInside)
         backButton.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
+        randomButton.addTarget(self, action: #selector(randomButtonTapped), for: .touchUpInside)
     }
     
     @objc
@@ -109,6 +112,11 @@ private extension ArchivingDetailViewController {
     @objc
     func backButtonTapped() {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @objc
+    func randomButtonTapped() {
+        getRandomAnswer()
     }
     
     private func saveImage() {
@@ -131,9 +139,6 @@ private extension ArchivingDetailViewController {
     func setupStyles() {
         view.backgroundColor = .grey7
         self.navigationController?.isNavigationBarHidden = true
-        
-        myAnswerCardView.contentLabel.text = "답변이에요"
-        othersAnswerCardView.contentLabel.text = "답변이에요"
     }
     
     func setupViews() {
@@ -229,8 +234,7 @@ private extension ArchivingDetailViewController {
             $0.titleLabel.text = "누군가의 답변입니다"
         }
         
-        createdAtLabel.setupLabel(font: .caption1, text: "11/25", textColor: .white)
-        questionLabel.setupLabel(font: .subTitle3, text: "당신의 기분은?", textColor: .white)
+        createdAtLabel.setupLabel(font: .caption1, text: "11/26", textColor: .white)
     }
     
     // MARK: - Create UI Properites Method

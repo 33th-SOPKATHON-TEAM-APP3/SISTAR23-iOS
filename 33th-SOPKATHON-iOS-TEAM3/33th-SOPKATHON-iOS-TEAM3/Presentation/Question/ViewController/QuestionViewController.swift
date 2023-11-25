@@ -85,13 +85,14 @@ private extension QuestionViewController {
         })
     }
     
-    func postTodayAnswer(questionId: Int, userId: Int, answer: String) {
+    func postTodayAnswer(questionId: Int, userId: Int, answer: String, completion: @escaping() -> Void) {
         AnswerAPI.shared.postTodayAnswer(questionId: questionId, userId: userId, answer: answer, completion: { (response) in
             switch response {
             case .success(let data):
                 print("success", data)
                 let saveCompleteVC = SaveCompleteViewController()
                 self.navigationController?.pushViewController(saveCompleteVC, animated: true)
+                completion()
                 // 데이터 가져온 후
             case .requestErr(let statusCode):
                 print("requestErr", statusCode)
@@ -107,9 +108,11 @@ private extension QuestionViewController {
 }
 
 extension QuestionViewController: QuestionViewButtonDelegate {
-    func saveButtonClicked() {
-        let rootVC = SaveCompleteViewController()
-        self.navigationController?.pushViewController(rootVC, animated: true)
+    func saveButtonClicked(questionId: Int, userId: Int, answer: String) {
+        postTodayAnswer(questionId: questionId, userId: userId, answer: answer) {
+            let rootVC = SaveCompleteViewController()
+            self.navigationController?.pushViewController(rootVC, animated: true)
+        }
     }
     
 }
