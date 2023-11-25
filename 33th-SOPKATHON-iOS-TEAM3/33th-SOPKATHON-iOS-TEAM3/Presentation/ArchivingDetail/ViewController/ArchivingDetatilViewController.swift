@@ -21,8 +21,8 @@ class ArchivingDetailViewController: UIViewController {
     
     private let capturedView = UIView()
     
-    private lazy var createdAtLabel: UILabel = { createLabel(forFont: .caption1, forColor: .white, text: "11/25")}()
-    private lazy var questionLabel: UILabel = { createLabel(forFont: .subTitle3, forColor: .white, text: "당신의 기분은?")}()
+    private let createdAtLabel = UILabel()
+    private let questionLabel = UILabel()
     private let detailImageView = UIImageView()
     
     private let myAnswerCardView = ArchivingDetailAnswerView()
@@ -160,6 +160,9 @@ private extension ArchivingDetailViewController {
         othersAnswerCardView.do {
             $0.titleLabel.text = "누군가의 답변입니다"
         }
+        
+        createdAtLabel.setupLabel(font: .caption1, text: "11/25", textColor: .white)
+        questionLabel.setupLabel(font: .subTitle3, text: "당신의 기분은?", textColor: .white)
     }
     
     // MARK: - Create UI Properites Method
@@ -182,22 +185,5 @@ private extension ArchivingDetailViewController {
             $0.height.equalTo(forHeight)
         }
         return view
-    }
-    
-    func createStackView(forSpacing: CGFloat) -> UIStackView {
-        let stack = UIStackView()
-        stack.axis = .vertical
-        stack.spacing = forSpacing
-        stack.alignment = .center
-        return stack
-    }
-    
-    func createLabel(forFont: UIFont, forColor: UIColor, text: String) -> UILabel {
-        let label = UILabel()
-        label.textAlignment = .center
-        label.font = forFont
-        label.text = text
-        label.textColor = forColor
-        return label
     }
 }
