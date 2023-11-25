@@ -7,23 +7,33 @@
 
 import UIKit
 
-class SaveCompleteViewController: UIViewController {
+import SnapKit
 
+final class SaveCompleteViewController: UIViewController {
+        
+    private let rootView = SaveCompleteView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        setUI()
+        setHierarchy()
+        setLayout()
+    }
+}
 
-        // Do any additional setup after loading the view.
+private extension SaveCompleteViewController {
+    func setUI() {
+        view.backgroundColor = .black
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func setHierarchy() {
+        view.addSubview(rootView)
     }
-    */
-
+    
+    func setLayout() {
+        rootView.snp.makeConstraints {
+            $0.edges.equalTo(view.safeAreaLayoutGuide)
+        }
+    }
 }

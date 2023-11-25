@@ -6,24 +6,79 @@
 //
 
 import UIKit
+import SnapKit
 
-class QuestionViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+final class QuestionViewController: UIViewController {
+//    let provider = MoyaProvider<QuestionAPI>()
+////            provider.request(.randomJokes("GilDong", "Hong")) { (result) in
+////                switch result {
+////                case let .success(response):
+////                    let result = try? response.map(Joke.self)
+////                    self.jokeTextView.text = result?.value.joke
+////                case let .failure(error):
+////                    print(error.localizedDescription)
+////                }
+////                
+////            }
+    
+    private var isFirstTimeKeyboardShown = true
+    
+    private let myView = QuestionView()
+    
+    // MARK: - Life Cycles
+    
+    override func loadView() {
+        super.loadView()
+        
+        
+        view = myView
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        getAPI()
+        setUI()
+        setHierarchy()
+        setLayout()
+        setDelegate()
     }
-    */
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if isFirstTimeKeyboardShown {
+            let textView = myView.textView
+            textView.becomeFirstResponder()
+            isFirstTimeKeyboardShown = false
+        }
+    }
+}
 
+// MARK: - Extensions
+extension QuestionViewController {
+    func setUI() {
+        
+    }
+    
+    func setHierarchy() {
+        
+    }
+    
+    func setLayout() {
+        
+    }
+    
+    func setDelegate() {
+        
+    }
+}
+
+// MARK: - Network
+
+extension QuestionViewController {
+    func getAPI() {
+        
+    }
+}
+
+extension QuestionViewController: UITextViewDelegate {
 }
