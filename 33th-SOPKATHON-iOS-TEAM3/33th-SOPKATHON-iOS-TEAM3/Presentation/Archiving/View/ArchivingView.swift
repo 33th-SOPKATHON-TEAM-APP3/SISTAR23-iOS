@@ -17,7 +17,9 @@ final class ArchivingView: UIView {
     
     // MARK: - UI Components
     
-    private let characterImage = UIImageView()
+    private let characterImage = UIImageView().then {
+        $0.image = ImageLiterals.Archiving.illu_cha_3
+    }
     
     private let todayLabel = UILabel().then {
         $0.text = "오늘의 질문"
