@@ -74,9 +74,7 @@ private extension ArchivingDetailViewController {
         view.backgroundColor = .grey7
         self.navigationController?.isNavigationBarHidden = true
         
-        myAnswerCardView.titleLabel.text = "나의 답변"
         myAnswerCardView.contentLabel.text = "답변이에요"
-        othersAnswerCardView.titleLabel.text = "누군가의 답변입니다"
         othersAnswerCardView.contentLabel.text = "답변이에요"
     }
     
@@ -155,9 +153,17 @@ private extension ArchivingDetailViewController {
             $0.image = UIImage(named: "detail_img")
         }
         
+        myAnswerCardView.do {
+            $0.titleLabel.text = "나의 답변"
+        }
+        
+        othersAnswerCardView.do {
+            $0.titleLabel.text = "누군가의 답변입니다"
+        }
     }
     
     // MARK: - Create UI Properites Method
+    
     func createCardView() -> UIView {
         let card = UIView()
         card.layer.backgroundColor = UIColor.white.cgColor
@@ -167,7 +173,6 @@ private extension ArchivingDetailViewController {
         }
         return card
     }
-    
     
     func createEmptyView(forColor: UIColor, forWidth: CGFloat, forHeight: CGFloat) -> UIView {
         let view = UIView()
