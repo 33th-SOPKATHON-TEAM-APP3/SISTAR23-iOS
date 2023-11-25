@@ -10,16 +10,16 @@ import SnapKit
 
 final class QuestionViewController: UIViewController {
 //    let provider = MoyaProvider<QuestionAPI>()
-////            provider.request(.randomJokes("GilDong", "Hong")) { (result) in
-////                switch result {
-////                case let .success(response):
-////                    let result = try? response.map(Joke.self)
-////                    self.jokeTextView.text = result?.value.joke
-////                case let .failure(error):
-////                    print(error.localizedDescription)
-////                }
-////                
-////            }
+//            provider.request(.randomJokes("GilDong", "Hong")) { (result) in
+//                switch result {
+//                case let .success(response):
+//                    let result = try? response.map(Joke.self)
+//                    self.jokeTextView.text = result?.value.joke
+//                case let .failure(error):
+//                    print(error.localizedDescription)
+//                }
+//                
+//            }
     
     private var isFirstTimeKeyboardShown = true
     
