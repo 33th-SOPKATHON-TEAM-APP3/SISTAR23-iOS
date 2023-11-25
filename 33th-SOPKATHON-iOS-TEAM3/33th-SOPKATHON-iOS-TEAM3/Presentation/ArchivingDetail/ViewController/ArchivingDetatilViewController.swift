@@ -9,15 +9,16 @@ import UIKit
 
 import Then
 import SnapKit
+import Photos
 
 class ArchivingDetailViewController: UIViewController {
     
     // MARK: - Properties
     
-    
     // MARK: - UI Properties
+    
     private let captureButton = UIButton()
-
+    
     private let capturedView = UIView()
     
     private lazy var createdAtLabel: UILabel = { createLabel(forFont: .caption1, forColor: .white, text: "11/25")}()
@@ -29,7 +30,7 @@ class ArchivingDetailViewController: UIViewController {
     private lazy var dividingLine: UIView = { createEmptyView(forColor: .grey5, forWidth: 344, forHeight: 2)}()
     
     private let othersAnswerCardView = ArchivingDetailAnswerView()
-
+    
     private let randomButton = UIButton()
     
     // MARK: - LifeCycle
@@ -41,12 +42,33 @@ class ArchivingDetailViewController: UIViewController {
         setupViews()
         setupConstraints()
         setupProperties()
+        setAddTarget()
     }
 }
 
 // MARK: - Private Method
 
 private extension ArchivingDetailViewController {
+    func setAddTarget() {
+        captureButton.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+    }
+    
+    @objc
+    func buttonTapped() {
+        saveImage()
+    }
+    
+    private func saveImage() {
+        if let image = self.capturedView.layer.makeLayerToImage() {
+            UIImageWriteToSavedPhotosAlbum(image, self, #selector(saveCompleted), nil)
+        }
+    }
+    
+    @objc func saveCompleted(_ image: UIImage,
+                             didFinishSavingWithError error: Error?,
+                             contextInfo: UnsafeRawPointer) {
+        print("Save finished!")
+    }
     
     func setupStyles() {
         view.backgroundColor = .grey7
@@ -132,6 +154,7 @@ private extension ArchivingDetailViewController {
         detailImageView.do {
             $0.image = UIImage(named: "detail_img")
         }
+        
     }
     
     // MARK: - Create UI Properites Method
