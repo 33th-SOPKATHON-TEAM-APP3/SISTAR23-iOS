@@ -1,6 +1,8 @@
-# SISTAR23-iOS
+# 🍀 있다 없으니까 (Gone Not Around Any Longer)
+
+
 ## 🙆🏻‍♀️🙅🏻‍♂️ 프로젝트 설명 
-🌟 33rd SOPT 해커톤, "솝커톤"
+🌟 33rd SOPT 해커톤, "솝커톤" iOS 3조
 ~~~
 "어라라..이런 상황이 나에게 닥친다면?"
 
