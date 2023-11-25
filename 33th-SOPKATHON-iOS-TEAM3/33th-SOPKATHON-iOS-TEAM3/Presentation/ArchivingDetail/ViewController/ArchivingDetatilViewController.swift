@@ -154,7 +154,6 @@ private extension ArchivingDetailViewController {
         detailImageView.do {
             $0.image = UIImage(named: "detail_img")
         }
-        
     }
     
     // MARK: - Create UI Properites Method
@@ -167,7 +166,6 @@ private extension ArchivingDetailViewController {
         }
         return card
     }
-    
     
     func createEmptyView(forColor: UIColor, forWidth: CGFloat, forHeight: CGFloat) -> UIView {
         let view = UIView()

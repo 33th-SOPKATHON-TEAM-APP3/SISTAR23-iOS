@@ -45,7 +45,6 @@
 		399B936C2B123C4C00B4E80E /* ArchivingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399B936B2B123C4C00B4E80E /* ArchivingView.swift */; };
 		399B936E2B123C6100B4E80E /* ArchivingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399B936D2B123C6100B4E80E /* ArchivingViewController.swift */; };
 		399B93732B123C8600B4E80E /* ArchivingDetatilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399B93722B123C8600B4E80E /* ArchivingDetatilViewController.swift */; };
-		399B93752B123C9100B4E80E /* ArchivingDetatilView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399B93742B123C9100B4E80E /* ArchivingDetatilView.swift */; };
 		399B93772B123D6800B4E80E /* AnswerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399B93762B123D6800B4E80E /* AnswerService.swift */; };
 		399B937B2B123DC700B4E80E /* MoyaLoggerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399B937A2B123DC700B4E80E /* MoyaLoggerPlugin.swift */; };
 		399B937E2B123F1100B4E80E /* QuestionAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 399B937D2B123F1100B4E80E /* QuestionAPI.swift */; };
@@ -97,7 +96,6 @@
 		399B936B2B123C4C00B4E80E /* ArchivingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingView.swift; sourceTree = "<group>"; };
 		399B936D2B123C6100B4E80E /* ArchivingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingViewController.swift; sourceTree = "<group>"; };
 		399B93722B123C8600B4E80E /* ArchivingDetatilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingDetatilViewController.swift; sourceTree = "<group>"; };
-		399B93742B123C9100B4E80E /* ArchivingDetatilView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchivingDetatilView.swift; sourceTree = "<group>"; };
 		399B93762B123D6800B4E80E /* AnswerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerService.swift; sourceTree = "<group>"; };
 		399B937A2B123DC700B4E80E /* MoyaLoggerPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaLoggerPlugin.swift; sourceTree = "<group>"; };
 		399B937D2B123F1100B4E80E /* QuestionAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionAPI.swift; sourceTree = "<group>"; };
@@ -409,7 +407,6 @@
 		399B93712B123C7D00B4E80E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				399B93742B123C9100B4E80E /* ArchivingDetatilView.swift */,
 				948C28B22B12774A00CEB2B7 /* ArchivingDetailAnswerView.swift */,
 			);
 			path = View;
@@ -597,7 +594,6 @@
 				399B93732B123C8600B4E80E /* ArchivingDetatilViewController.swift in Sources */,
 				392EF51A2B11F6410048F09C /* SceneDelegate.swift in Sources */,
 				392EF5692B11FD350048F09C /* ExampleCollectionViewCell.swift in Sources */,
-				399B93752B123C9100B4E80E /* ArchivingDetatilView.swift in Sources */,
 				392EF5502B11FA830048F09C /* ColorLiterals.swift in Sources */,
 				392EF56C2B11FE700048F09C /* QuestionService.swift in Sources */,
 				CDF6323C2B125D940014EB66 /* UserEntity.swift in Sources */,

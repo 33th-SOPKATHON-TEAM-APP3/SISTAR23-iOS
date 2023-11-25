@@ -47,7 +47,7 @@ extension ArchivingViewController {
     }
     
     func setDelegate() {
-
+        archivingView.archivingViewCellDelegate = self
     }
 }
 
@@ -71,3 +71,9 @@ extension ArchivingViewController {
 //
 //}
 
+extension ArchivingViewController: ArchivingViewCellDelegate {
+    func cellClicked() {
+        let rootVC = ArchivingDetailViewController()
+        self.navigationController?.pushViewController(rootVC, animated: true)
+    }
+}
