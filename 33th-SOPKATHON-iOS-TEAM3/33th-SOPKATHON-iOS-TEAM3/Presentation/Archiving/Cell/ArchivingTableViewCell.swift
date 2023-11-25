@@ -65,6 +65,10 @@ extension ArchivingTableViewCell {
             $0.height.equalTo(44)
         }
     }
+    
+    func bindData(title: String) {
+        questionLabel.text = title
+    }
 }
 
 

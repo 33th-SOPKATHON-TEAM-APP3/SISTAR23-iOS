@@ -30,7 +30,7 @@ final class ArchivingView: UIView {
         $0.layer.cornerRadius = 4
     }
     
-    private let todayQuestionLabel = UILabel().then {
+    public let todayQuestionLabel = UILabel().then {
         $0.text = "노트북 배터리가 0% 상태에서 정전이 되었다. 당신의 기분은?"
         $0.textColor = .pinkPale
         $0.font = .subTitle3
@@ -43,7 +43,7 @@ final class ArchivingView: UIView {
         $0.font = .title3
     }
     
-    private let questionTableView = UITableView(frame: .zero, style: .plain).then {
+    public let questionTableView = UITableView(frame: .zero, style: .plain).then {
         $0.isScrollEnabled = false
         $0.backgroundColor = .grey7
     }
@@ -122,8 +122,7 @@ extension ArchivingView {
     }
     
     func setDelegate() {
-        questionTableView.dataSource = self
-        questionTableView.delegate = self
+
     }
     
     func setRegisterCell() {
@@ -132,29 +131,4 @@ extension ArchivingView {
     
     func setDataBind() {
         
-    }
-}
-
-// MARK: - TableView Delegate
-extension ArchivingView: UITableViewDelegate { 
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 94
-    }
-    
-}
-
-// MARK: - TableView DataSource
-extension ArchivingView: UITableViewDataSource {
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = ArchivingTableViewCell.dequeueReusableCell(tableView: questionTableView)
-        cell.selectionStyle = .none
-        return cell
-    }
-}
-
+    }}

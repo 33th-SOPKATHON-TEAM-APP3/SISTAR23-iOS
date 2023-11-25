@@ -11,7 +11,7 @@ enum URLConstant {
     
     // MARK: - Base URL
     
-    static let baseURL = ""
+    static let baseURL = "http://52.79.50.8"
     
     // MARK: - User
     

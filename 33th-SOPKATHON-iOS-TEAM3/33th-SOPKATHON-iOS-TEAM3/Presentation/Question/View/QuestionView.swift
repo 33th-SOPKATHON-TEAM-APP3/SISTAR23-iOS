@@ -22,6 +22,8 @@ final class QuestionView: UIView, UIGestureRecognizerDelegate {
     
     var index: Int = 0
     
+    public var questionId: Int = 0
+    
     // MARK: - UI Components
     
     private let iconImageView: UIImageView = {
@@ -72,9 +74,10 @@ final class QuestionView: UIView, UIGestureRecognizerDelegate {
         return answerView
     }()
     
-    private let questionLabel: UILabel = {
+    public let questionLabel: UILabel = {
         let label = UILabel()
-        label.setupLabel(font: .caption2, text: "노트북 배터리가 0% 상태에서 정전이 되었다. 당신의 기분은? 아아아아아아아아아아아아아", textColor: .grey6)
+        label.font = .caption2
+        label.textColor = .grey6
         label.numberOfLines = 2
         return label
     }()
@@ -188,7 +191,7 @@ extension QuestionView {
     
     @objc func onTapButton() {
         print("tap")
-        self.delegate?.didTapButton(questionId: 1, userId: 1, answer: textView.text)
+        self.delegate?.didTapButton(questionId: questionId, userId: UserDefaults.standard.integer(forKey: "USER_ID"), answer: textView.text)
     }
     
     func setRegisterCell() {

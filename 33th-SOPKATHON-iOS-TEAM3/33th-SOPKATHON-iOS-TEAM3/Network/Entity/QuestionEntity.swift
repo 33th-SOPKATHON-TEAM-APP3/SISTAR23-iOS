@@ -7,10 +7,6 @@
 
 import Foundation
 
-struct TodayQuestionModel: Codable {
-    let question: String
-}
-
 struct QuestionListModel: Codable {
     let todayQuestion: QuestionModel
     let questionList: [QuestionModel]

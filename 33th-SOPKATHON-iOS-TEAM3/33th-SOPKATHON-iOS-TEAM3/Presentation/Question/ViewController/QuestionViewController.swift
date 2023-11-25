@@ -25,12 +25,11 @@ final class QuestionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        getAPI()
         setUI()
         setHierarchy()
         setLayout()
         setDelegate()
-//        getTodayQuestion()
+        getTodayQuestion()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -40,23 +39,6 @@ final class QuestionViewController: UIViewController {
             isFirstTimeKeyboardShown = false
         }
     }
-    
-    func getTodayQuestion() {
-            QuestionAPI.shared.getTodayQuestion(completion: { (response) in
-                switch response {
-                case .success(let data):
-                    print("success", data)
-                case .requestErr(let statusCode):
-                    print("requestErr", statusCode)
-                case .pathErr:
-                    print(".pathErr")
-                case .serverErr:
-                    print("serverErr")
-                case .networkFail:
-                    print("networkFail")
-                }
-            })
-        }
 }
 
 // MARK: - Extensions
@@ -80,11 +62,27 @@ extension QuestionViewController {
 
 // MARK: - Network
 
-extension QuestionViewController {
+private extension QuestionViewController {
     
-    
-    func getAPI() {
-        
+    func getTodayQuestion() {
+        QuestionAPI.shared.getTodayQuestion(completion: { (response) in
+            switch response {
+            case .success(let data):
+                print("success", data)
+                if let data = data as? QuestionModel {
+                    self.myView.questionId = data.questionId
+                    self.myView.questionLabel.text = data.questionName
+                }
+            case .requestErr(let statusCode):
+                print("requestErr", statusCode)
+            case .pathErr:
+                print(".pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        })
     }
     
     func postTodayAnswer(questionId: Int, userId: Int, answer: String) {
